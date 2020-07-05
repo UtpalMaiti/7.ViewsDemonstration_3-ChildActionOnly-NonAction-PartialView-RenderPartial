@@ -1,0 +1,36 @@
+﻿@model ViewsDemonstration_3.Models.Employee
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h2>Understanding the Concept of Partial Views...</h2>
+        @Html.Action("LoadEmployees")
+        <p>
+            <label>Controller Name : <b>@ViewBag.ControllerName</b></label>
+        </p>
+        <p>
+            <label>Employee Name : <b>@Model.Name</b></label>
+        </p>
+        @{
+            Html.RenderPartial("_TestPartial");
+        }
+        <div style="border:3px solid red">
+            @Html.Partial("_DemoPartial", new ViewsDemonstration_3.Models.LoginInfo
+       {
+           UserName = "Pragim",
+           PassWord = "Pragim@123"
+       })
+        </div>
+    </div>
+</body>
+</html>
